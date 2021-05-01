@@ -1,2 +1,2 @@
 # Javelin
-Mirrored privately on Gitlab, This Repository holds the IaC for SkyCrypt on Kubernetes.
+Javelin is a Github Repository holds the IaC for SkyCrypt on Kubernetes.
