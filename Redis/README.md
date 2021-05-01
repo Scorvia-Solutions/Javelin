@@ -4,7 +4,7 @@ Authored by WarpWing
 
 This is a short tutorial on how to deploy a Kubernetes Redis Cluster (Adapted heavily from a Rancher Blog.)
 
-# Requirements
+## Requirements
 - 42 GBs of spare spaces for Persistence Volumes 
 - A Kubernetes Cluster (Nodes count doesn't matter)
 - Basic commandline experience
