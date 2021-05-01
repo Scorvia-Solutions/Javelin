@@ -1,4 +1,4 @@
-# Kubernetes Redis Cluster Setup 
+# Kubernetes Redis Cluster Setup  for SkyCrypt Javelin
 Authored by WarpWing
 ## Description 
 
