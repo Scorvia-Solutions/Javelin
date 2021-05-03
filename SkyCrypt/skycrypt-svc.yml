@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: skycrypt-javelin-lb
+  namespace: skycrypt-javelin
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 32464
+    protocol: TCP
+    targetPort: 32464
+  selector:
+      app: longhorn
