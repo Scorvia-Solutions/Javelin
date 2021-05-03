@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: skycrypt-javelin
+  labels: 
+    app: skycrypt-javelin
 spec:
-  replicas: 3
-  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: skycrypt-javelin
@@ -19,3 +19,10 @@ spec:
         ports:
         - containerPort: 32464
         targetport: 32646
+        resources: 
+          requests: 
+            cpu: 250m
+            memory: 1Gi
+          limits:
+            cpu: 500m
+            memory: 2Gi
