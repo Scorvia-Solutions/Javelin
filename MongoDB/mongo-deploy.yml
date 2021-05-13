@@ -3,32 +3,38 @@ kind: StatefulSet
 metadata:
   name: mongo
 spec:
-  replicas: 3
-  revisionHistoryLimit: 4
   selector:
     matchLabels:
-      app: mongo
+      role: mongo
+      environment: test
+  serviceName: "mongo"
+  replicas: 3
   template:
     metadata:
       labels:
-        app: mongo
+        role: mongo
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - image: mongo
-        name: mongo
-         command:
+      - name: mongo
+        image: mongo
+        command:
           - mongod
           - "--replSet"
           - rs0
           - "--smallfiles"
           - "--noprealloc"
         ports:
-        - containerPort: 27017
+          - containerPort: 27017
         volumeMounts:
           - name: mongo-persistent-storage
             mountPath: /data/db
-   volumeClaimTemplates:
+      - name: mongo-sidecar
+        image: cvallance/mongo-k8s-sidecar
+        env:
+          - name: MONGO_SIDECAR_POD_LABELS
+            value: "role=mongo,environment=test"
+  volumeClaimTemplates:
     - metadata:
         name: mongo-persistent-storage
       spec:
