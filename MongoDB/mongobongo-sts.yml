@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongobongo
@@ -36,14 +36,14 @@ spec:
           - name: MONGO_SIDECAR_POD_LABELS
             value: "role=mongobongo,environment=test" 
           - name: POD_IP
-          valueFrom:
-            fieldRef:
-              fieldPath: status.podIP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
   volumeClaimTemplates:
     - metadata:
         name: mongo-persistent-storage
       spec:
-        storageClassName: "SC-Default"
+        storageClassName: "fast"
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:
