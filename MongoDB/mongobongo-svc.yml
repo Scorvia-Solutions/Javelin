@@ -1,13 +1,13 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongobongo
-  labels:
-    name: mongobongo
+  name: MongoService
 spec:
+  type: LoadBalancer
   ports:
-    - port: 27017
-      targetPort: 27017
-  clusterIP: None
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
   selector:
-    role: mongobongo
+      app: mongo
