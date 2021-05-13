@@ -18,4 +18,13 @@ spec:
         name: mongo
         ports:
         - containerPort: 27017
-        targetport: 27017
+        targetport: 27017 
+   volumeClaimTemplates:
+    - metadata:
+        name: mongo-persistent-storage
+      spec:
+        storageClassName: "fast"
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 40Gi
