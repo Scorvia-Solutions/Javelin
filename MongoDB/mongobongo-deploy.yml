@@ -34,7 +34,11 @@ spec:
         image: cvallance/mongo-k8s-sidecar
         env:
           - name: MONGO_SIDECAR_POD_LABELS
-            value: "role=mongo,environment=test"
+            value: "role=mongo,environment=test" 
+          - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
   volumeClaimTemplates:
     - metadata:
         name: mongo-persistent-storage
