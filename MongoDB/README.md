@@ -1,4 +1,5 @@
 # MongoDB setup for SkyCrypt Javelin
 
-Pain... Pain and suffering
-(This is currently not the setup for SkyCrypt Javeline)
+https://hub.kubeapps.com/charts/bitnami/mongodb-sharded
+
+Just install that lmao. More detailed stuff coming out soon
