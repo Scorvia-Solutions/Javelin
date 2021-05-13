@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      role: mongo
+      role: mongobongo
       environment: test
   serviceName: "mongobongo"
   replicas: 3
@@ -17,7 +17,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - name: mongo
+      - name: mongobongo
         image: mongo
         command:
           - mongod
@@ -34,7 +34,7 @@ spec:
         image: cvallance/mongo-k8s-sidecar
         env:
           - name: MONGO_SIDECAR_POD_LABELS
-            value: "role=mongo,environment=test" 
+            value: "role=mongobongo,environment=test" 
           - name: POD_IP
           valueFrom:
             fieldRef:
