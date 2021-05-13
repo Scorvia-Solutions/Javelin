@@ -43,7 +43,7 @@ spec:
     - metadata:
         name: mongo-persistent-storage
       spec:
-        storageClassName: "fast"
+        storageClassName: "local-path"
         accessModes: ["ReadWriteOnce"]
         resources:
           requests:

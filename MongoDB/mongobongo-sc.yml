@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: defaultstore
+  name: fast
 spec:
   accessModes:
     - ReadWriteOnce
