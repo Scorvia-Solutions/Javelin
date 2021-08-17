@@ -33,8 +33,8 @@ kubectl apply -f redis-svc.yaml
 ``` 
 - Deploy the actual Cluster (The first two steps was to provide the initial infrastructure and configuration) by doing the following: 
 ```shell 
-kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(echo $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ') | awk '{print $1 " " $2 " " $3 " " $4 " "$5 " " $6 " " }'
-)
+kubectl exec -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ') | awk '{print $1 " " $2 " " $3 " " $4 " "$5 " " $6 " " }'
+
 ```
 - Verify that the cluster deployed successfully(Give the Kubernetes Cluster time to spin up the instances. 2-5 minutes max) by doing the following 
 ```shell
